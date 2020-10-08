@@ -9,7 +9,6 @@ on:
 env:
   RUST_BACKTRACE: 1
   CARGO_TARGET_DIR: '${{ github.workspace }}/target'
-  NO_FMT_TEST: 1
 
 jobs:
   changelog:
@@ -86,6 +85,7 @@ jobs:
         toolchain: nightly
         target: ${{ matrix.host }}
         profile: minimal
+        components: rustfmt
 
     - name: Checkout
       uses: actions/checkout@v2.0.0
